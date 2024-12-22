@@ -1,0 +1,7 @@
+FROM ubuntu:22.04
+WORKDIR /app
+ADD ./entrypoint.sh .
+RUN apt update -y
+RUN apt install nginx -y
+EXPOSE 80
+ENTRYPOINT nginx -c /etc/nginx/nginx.conf -g 'daemon off;'
